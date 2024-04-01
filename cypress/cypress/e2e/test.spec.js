@@ -1,6 +1,42 @@
+import SearchPage from "../page-object/SearchPage"
+
+describe('Search Tests', () => {
+  const searchPage = new SearchPage();
+
+  beforeEach(() => {
+    searchPage.visit();
+  });
+
+  it('should search by ID', () => {
+    searchPage.fillId('1');
+  });
+
+  it('should search by First Name', () => {
+    searchPage.fillFirstName('John');
+  });
+
+  it('should search by Last Name', () => {
+    searchPage.fillLastName('Doe');
+  });
+
+  it('should search by Username', () => {
+    searchPage.fillUserName('@snow');
+  });
+
+  it('should search by Email', () => {
+    searchPage.fillEmail('mdo@gmail.com');
+  });
+
+  it('should search by Age', () => {
+    searchPage.fillAge('30');
+  });
+});
+
+//Search test for new user
 describe('Table tests', () => {
+  const searchPage = new SearchPage()
   describe('New row', () => {
-  it('create and find test', () => {
+  it('Create user and find him by email', () => {
     cy.visit("")
     cy.contains("Tables & Data").click()
     cy.contains("Smart Table").click()
@@ -13,7 +49,7 @@ describe('Table tests', () => {
     cy.get('[ng-reflect-name="age"]').type('33')
     cy.get('.nb-checkmark').click()
     cy.contains("Smart Table").click()
-    cy.get('[placeholder="E-mail"]').type('tshev@gmail.com').click()
+    searchPage.fillEmail('tshev@gmail.com')
     })
   })
 })
