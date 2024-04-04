@@ -21,9 +21,9 @@ it("API test",()=>{
   it("Mocking",()=>{
     const tags = {
       "tags": [
-          "Ilya",
-          "Studigrad",
-          "Cypress tests"
+          "Bohdan",
+          "Playwright",
+          "Cypress"
       ]
   }
         cy.intercept("GET","https://conduit-api.bondaracademy.com/api/tags",{"tags":[]})
